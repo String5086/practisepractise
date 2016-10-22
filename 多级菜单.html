@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu{
+            width: 315px;
+        }
+        #menu .main-menu{
+            width: 100px;
+            height: 30px;
+            background-color: gray;
+            float: left;
+            margin-right: 5px;
+        }
+        #menu .main-menu a{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            display: block;
+        }
+        #menu .sub-menu{
+            display: none;
+        }
+        #menu .sub-menu li{
+            background-color: #ccc;
+            border-bottom: 1px dashed black;
+        }
+        #menu .sub-menu a{
+            text-align: left;
+            text-indent: 5px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li class="main-menu">
+            <a href="">link1</a>
+            <ul class="sub-menu">
+                <li><a href="">sublink1</a></li>
+                <li><a href="">sublink2</a></li>
+                <li><a href="">sublink3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="">link2</a>
+            <ul class="sub-menu">
+                <li><a href="">sublink1</a></li>
+                <li><a href="">sublink2</a></li>
+                <li><a href="">sublink3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="">link3</a>
+            <ul class="sub-menu">
+                <li><a href="">sublink1</a></li>
+                <li><a href="">sublink2</a></li>
+                <li><a href="">sublink3</a></li>
+            </ul>
+        </li>
+    </ul>
+<script>
+    var oUL=document.getElementById("menu");
+    var aLI=oUL.getElementsByTagName("li");
+    for(var i=0;i<aLI.length;i++){
+        if(aLI[i].className=="main-menu"){
+            aLI[i].onmouseover=function(){
+                this.getElementsByTagName("ul")[0].style.display="block";
+            };
+            aLI[i].onmouseout=function(){
+                this.getElementsByTagName("ul")[0].style.display="none";
+            };
+        }
+    }
+
+</script>
+</body>
+</html>
