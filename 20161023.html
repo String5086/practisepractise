@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu p{
+            width: 100px;
+            height: 30px;
+            background-color: gray;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+        #menu a{
+            width: 100px;
+            height: 30px;
+            background-color: #cccccc;
+            text-align: center;
+            line-height: 30px;
+            display: block;
+            border-bottom: 1px dashed black;
+        }
+        #menu .sub-menu{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li class="main-menu">
+            <p>link1</p>
+            <ul class="sub-menu">
+                <li><a href="">sublink1</a></li>
+                <li><a href="">sublink2</a></li>
+                <li><a href="">sublink3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <p>link2</p>
+            <ul class="sub-menu">
+                <li><a href="">sublink1</a></li>
+                <li><a href="">sublink2</a></li>
+                <li><a href="">sublink3</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var oUl = document.getElementById("menu");
+        var aLi = oUl.getElementsByTagName("p");
+        var aUl = oUl.getElementsByTagName("ul");
+//        var aLi = oUl.children;
+//        for(var i=0;i<aLi.length;i++){
+//            var oP = aLi[i].children[0];
+//            oP.index=i;
+//            oP.onclick = function(){
+//                if(aLi[this.index].children[1].style.display=="block"){
+//                    aLi[this.index].children[1].style.display="none";
+//                }else{
+//                    aLi[this.index].children[1].style.display="block";
+//                }
+//
+//            }
+//        }
+
+//        for(var i=0;i<aLi.length;i++){
+//            aLi[i].index=i;
+//            aLi[i].onclick = function(){
+//                if(aUl[this.index].style.display=="block"){
+//                    aUl[this.index].style.display="none";
+//                }else{
+//                    aUl[this.index].style.display="block";
+//                }
+//            }
+//        }
+
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick = function(){
+                var oSubUl = next(this);
+                if(oSubUl.style.display=="block"){
+                    oSubUl.style.display="none";
+                }else{
+                    oSubUl.style.display="block";
+                }
+
+            }
+        }
+
+        function next(elem){
+            do{
+                elem=elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
+        }
+
+
+    </script>
+</body>
+</html>
