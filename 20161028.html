@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ol,ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        #container div{
+            display: none;
+        }
+        #tab{
+            overflow: hidden;
+        }
+        #tab li{
+            width: 120px;
+            height: 30px;
+            background: gray;
+            float: left;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #tab .selected{
+            background: black;
+            color: white;
+        }
+        #container .content{
+            display: block;
+            height: 270px;
+            background: #999999;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="tab">
+            <li class="selected">html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        <div class="content">aaa</div>
+        <div>bbb</div>
+        <div>ccc</div>
+    </div>
+    <script>
+        var oUl=document.getElementById("tab");
+        var aLi=oUl.getElementsByTagName("li");
+        var oDiv=document.getElementById("container");
+        var aDiv=oDiv.getElementsByTagName("div");
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onclick=function(){
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className="";
+                    aDiv[i].className="";
+                }
+                this.className="selected";
+                aDiv[this.index].className="content";
+            }
+        }
+    </script>
+</body>
+</html>
