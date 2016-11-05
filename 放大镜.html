@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            position: relative;
+        }
+        #small{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #big{
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            /*display: none;*/
+        }
+        #aaa{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            background: #ffffff;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+        #abc{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="small">
+            <img src="./static/img/small.jpg" alt=""/>
+            <div id="aaa"></div>
+        </div>
+        <div id="big">
+            <img id="abc" src="./static/img/big.jpg" alt=""/>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            var oSmall = document.getElementById("small");
+            var oBig = document.getElementById("big");
+            var oAaa = document.getElementById("aaa");
+            var oAbc = document.getElementById("abc");
+//            console.log(oAaa);
+//            console.log(oSmall.offsetWidth);
+//            console.log(oBig.offsetWidth);
+            var bili = oAbc.offsetWidth/oSmall.offsetWidth;
+            oBig.style.display = "none";
+//            console.log(bili);
+            oBig.style.width = oSmall.offsetWidth + "px";
+            oBig.style.height = oSmall.offsetHeight + "px";
+            oBig.style.left = oSmall.offsetWidth + "px";
+            oAaa.style.width = (oSmall.offsetWidth)/bili + "px";
+//            console.log(oAaa.style.width);
+            oAaa.style.height = (oSmall.offsetHeight)/bili + "px";
+            var iHwidth = ((oSmall.offsetWidth)/bili)/2;
+            var iHheight = ((oSmall.offsetHeight)/bili)/2;
+            oSmall.onmouseover = function(){
+                oBig.style.display = "block";
+                oAaa.style.display = "block";
+                oSmall.onmousemove = function(e){
+                    e = e || window.event;
+                    var iX;
+                    var iY;
+                    if(e.clientX < iHwidth)
+                    {
+                        iX = 0;
+                    }else if(e.clientX > (oSmall.offsetWidth - iHwidth)){
+                        iX = oSmall.offsetWidth - 2*iHwidth;
+                    }else{
+                        iX = e.clientX - iHwidth;
+                    }
+                    if(e.clientY < iHheight){
+                        iY = 0;
+                    }else if(e.clientY > oSmall.offsetHeight - iHheight){
+                        iY = oSmall.offsetHeight - 2*iHheight;
+                    }else{
+                        iY = e.clientY - iHheight;
+                    }
+                    oAaa.style.top = iY +"px";
+                    oAaa.style.left = iX + "px";
+                    oAbc.style.top = -iY*bili +"px";
+                    oAbc.style.left = -iX*bili + "px";
+                }
+            };
+            oSmall.onmouseout = function(){
+                oBig.style.display = "none";
+                oAaa.style.display = "none";
+            };
+        }
+    </script>
+</body>
+</html>
