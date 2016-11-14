@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        function jiecheng(num){
+            var count=1;
+            for(var i=num;i>0;i--){
+                count *=i;
+            }
+            return count;
+        }
+        var totle=0;
+        for(var a=1;a<11;a++){
+            totle += jiecheng(a);
+        }
+        alert(totle);
+    </script>
+</body>
+</html>

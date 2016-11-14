@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input id="in" type="text"/>
+    <button id="btn">submit</button>
+    <script>
+        var oIn = document.getElementById("in");
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function(){
+            if(oIn.value < 0){
+                alert("输入非法");
+            }else if(oIn.value < 14){
+                alert("儿童");
+            }else if(oIn.value < 24){
+                alert("青少年");
+            }else if(oIn.value < 40){
+                alert("青年");
+            }else if(oIn.value < 60){
+                alert("中年");
+            }else if(oIn.value >= 60){
+                alert("老年");
+            }
+        }
+    </script>
+</body>
+</html>

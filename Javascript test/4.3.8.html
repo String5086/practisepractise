@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        var a=1000;
+        for(var x=1000;x<10000;x++){
+            if(x%13==0 && Math.floor(x/1000)==(Math.floor(x%1000/100)+Math.floor(x%100/10))){
+                console.log(x);
+            }
+        }
+    </script>
+</body>
+</html>
