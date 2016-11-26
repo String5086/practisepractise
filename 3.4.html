@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            background: red;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 200px;
+        }
+        #div2{
+            background: gold;
+            height: 100%;
+            margin-left: 200px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">a</div>
+    <div id="div2">b</div>
+    <script>
+//        实现页面两列布局,要求左侧固定宽度200px，右侧根据屏幕宽度自适应。（写出能想到的所有实现方法）
+        oDiv1 = document.getElementById("div1");
+        oDiv2 = document.getElementById("div2");
+    </script>
+</body>
+</html>

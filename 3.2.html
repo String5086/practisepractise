@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    有一行单词，空格为单词间的间隔，找出其中最长的单词和最短的单词。
+    function test(string){
+        var newarray = string.split(" ");
+        var maxlength = 0;
+        var index = 0;
+        for(var i=0;i<newarray.length;i++){
+            if(newarray[i].length>maxlength){
+                index = i;
+                maxlength = newarray[i].length;
+            }
+        }
+        console.log(newarray[index]);
+    }
+    test("hello world hhhhhhhhhhhhhh a");
+</script>
+</body>
+</html>
