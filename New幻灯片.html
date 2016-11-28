@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        body{
+            background: #666;
+        }
+        #container{
+            width: 400px;
+            height: 434px;
+            margin: 50px auto;
+            position: relative;
+        }
+        #content{
+            width: 400px;
+            height: 320px;
+            position: relative;
+        }
+        #big-img li{
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        #left,#right{
+            width: 200px;
+            height: 320px;
+            position: absolute;
+            top: 0;
+            z-index: 10000;
+        }
+        #left{
+            left: 0;
+        }
+        #right{
+             right: 0;
+        }
+        #btn-left,#btn-right{
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 130px;
+            z-index: 10000;
+            opacity: 0;
+        }
+        #btn-left{
+            left: 0;
+            background: url("img/btn.gif");
+        }
+        #btn-right{
+            right: 0;
+            background: url("img/btn.gif") 0 60px;
+        }
+        #text{
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+            width: 400px;
+            height: 30px;
+            z-index: 10000;
+            opacity: 0.5;
+        }
+        #text-left{
+            float: left;
+            margin-left: 10px;
+        }
+        #text-right{
+            float: right;
+            margin-right: 10px;
+        }
+        #foot{
+            width: 400px;
+            height: 114px;
+            position: relative;
+            overflow: hidden;
+        }
+        #small-img{
+            width: 790px;
+            height: 114px;
+            background: #999;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        #small-img li{
+            margin: 10px 0 10px 10px;
+            opacity: 0.6;
+            float: left;
+        }
+        #small-img img{
+            width: 120px;
+            height: 94px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <ul id="big-img">
+                <li style="z-index: 1"><img src="img/1.jpg" alt="" title="000001"/></li>
+                <li><img src="img/2.jpg" alt="" title="000002"/></li>
+                <li><img src="img/3.jpg" alt="" title="000003"/></li>
+                <li><img src="img/4.jpg" alt="" title="000004"/></li>
+                <li><img src="img/5.jpg" alt="" title="000005"/></li>
+                <li><img src="img/6.jpg" alt="" title="000006"/></li>
+            </ul>
+            <div id="text">
+                <span id="text-left">000001</span>
+                <div id="text-right">
+                    <span id="num">1</span>/<span>6</span>
+                </div>
+            </div>
+        </div>
+        <div id="left"><span id="btn-left"></span></div>
+        <div id="right"><span id="btn-right"></span></div>
+        <div id="foot">
+            <ul id="small-img" style="left: 0">
+                <li style="opacity: 1;"><img src="img/1.jpg" alt="" title="000001"/></li>
+                <li><img src="img/2.jpg" alt="" title="000002"/></li>
+                <li><img src="img/3.jpg" alt="" title="000003"/></li>
+                <li><img src="img/4.jpg" alt="" title="000004"/></li>
+                <li><img src="img/5.jpg" alt="" title="000005"/></li>
+                <li><img src="img/6.jpg" alt="" title="000006"/></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oLeft = document.getElementById("left");
+        var oRight = document.getElementById("right");
+        var iNow = 0;
+        var zIndex = 1;
+        var oBtnLeft = document.getElementById("btn-left");
+        var oBtnRight = document.getElementById("btn-right");
+        var oBigImg = document.getElementById("big-img");
+        var aLiB = oBigImg.getElementsByTagName("li");
+        var oSmallImg = document.getElementById("small-img");
+        var aLiS = oSmallImg.getElementsByTagName("li");
+        var oTextLeft = document.getElementById("text-left");
+        var oNum = document.getElementById("num");
+        var oContainer = document.getElementById("container");
+        var ttt;
+
+        ttt = setInterval(function(){
+            oBtnRight.onclick();
+        },4000);
+        oContainer.onmouseover = function(){
+            clearInterval(ttt);
+        };
+        oContainer.onmouseout = function(){
+            ttt = setInterval(function(){
+                oBtnRight.onclick();
+            },4000);
+        };
+
+        oLeft.onmouseover = oRight.onmouseover = function(){
+            this.getElementsByTagName("span")[0].style.opacity = 0.6;
+        };
+        oLeft.onmouseout = oRight.onmouseout = function(){
+            this.getElementsByTagName("span")[0].style.opacity = 0;
+        };
+
+        oBtnLeft.onclick = function(){
+            iNow--;
+            if(iNow == -1){
+                iNow = 5;
+            }
+            changeImg(iNow);
+        };
+        oBtnRight.onclick = function(){
+            iNow++;
+            if(iNow == 6){
+                iNow = 0;
+            }
+            changeImg(iNow);
+        };
+        function changeImg(idx){
+            var lueluelue = 0;
+            aLiB[idx].style.height = lueluelue;
+            aLiB[idx].style.zIndex = ++zIndex;
+            var timer = setInterval(function(){
+                lueluelue += 16;
+                aLiB[idx].style.height = lueluelue + "px";
+                if(lueluelue == 320){
+                    clearInterval(timer);
+                }
+            },50);
+
+            iNow = idx;
+            var hahaha;
+            if(idx == 0){
+                hahaha = 0;
+            }else if(idx == 5){
+                hahaha = 3;
+            }else{
+                hahaha = idx -1;
+            }
+            oSmallImg.style.left = -(aLiS[0].offsetWidth+10) * hahaha + "px";
+            for(var i=0;i<aLiS.length;i++){
+                aLiS[i].style.opacity = "0.6";
+            }
+            aLiS[iNow].style.opacity = "1";
+
+            oTextLeft.innerHTML = aLiB[iNow].getElementsByTagName("img")[0].title;
+            oNum.innerHTML = iNow+1;
+        }
+        for(var i=0;i<aLiS.length;i++){
+            aLiS[i].index = i;
+            aLiS[i].onmouseover = function(){
+                this.style.opacity = 1;
+            };
+            aLiS[i].onmouseout = function(){
+                if(this.index != iNow){
+                    this.style.opacity = 0.6;
+                }
+            };
+            aLiS[i].onclick = function(){
+               changeImg(this.index);
+            }
+        }
+    </script>
+</body>
+</html>
