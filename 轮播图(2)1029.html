@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #container{
+            margin: 200px auto;
+            width: 680px;
+            height: 344px;
+            background: #cccccc;
+            position: relative;
+            overflow: hidden;
+        }
+        #list li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-right: 5px;
+            line-height: 20px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+        }
+        #list .selected{
+            background: orange;
+        }
+        #list{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            z-index: 1;
+        }
+        #img{
+            position: absolute;
+            left: 0;
+        }
+        #img img{
+            float: left;
+        }
+        #arrow{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #arrow span{
+            float: left;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-right: 5px;
+            line-height: 20px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="list">
+            <li class="selected" onselectstart="return false">1</li>
+            <li onselectstart="return false">2</li>
+            <li onselectstart="return false">3</li>
+            <li onselectstart="return false">4</li>
+        </ul>
+        <div id="img">
+            <img src="./static/img/1.jpg" alt=""/>
+            <img src="./static/img/2.jpg" alt=""/>
+            <img src="./static/img/3.jpg" alt=""/>
+            <img src="./static/img/4.jpg" alt=""/>
+        </div>
+        <div id="arrow">
+            <span id="prev" onselectstart="return false">&lt;</span>
+            <span id="next" onselectstart="return false">&gt;</span>
+        </div>
+    </div>
+    <script>
+        window.onload=function(){
+        var oList=document.getElementById("list");
+        var oImg=document.getElementById("img");
+        var aLi=oList.getElementsByTagName("li");
+        var aImg=oImg.getElementsByTagName("img");
+        var oPrev=document.getElementById("prev");
+        var oNext=document.getElementById("next");
+        var iNow=0;
+        var timer;
+        oImg.style.width=aImg[0].offsetWidth * aImg.length +"px";
+        console.log(oImg.style.width);
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onmouseover=function(){
+                changeImage(this.index);
+                iNow=this.index;
+            }
+        }
+        oPrev.onclick=function(){
+            iNow--;
+            if(iNow==-1){
+                iNow= aLi.length-1;
+            }
+            changeImage(iNow);
+        };
+        oNext.onclick=function(){
+            iNow++;
+            iNow=iNow%aLi.length;
+            changeImage(iNow);
+        };
+        function changeImage(index){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className="";
+            }
+            aLi[index].className="selected";
+            oImg.style.left=-aImg[0].offsetWidth * index+"px";
+        }
+        timer=setInterval(function(){
+            oNext.onclick();
+        },2000);
+        document.getElementById("container").onmouseover=function(){
+            clearInterval(timer);
+        };
+        document.getElementById("container").onmouseout=function(){
+            timer=setInterval(function(){
+                oNext.onclick();
+            },2000);
+        }
+        }
+    </script>
+</body>
+</html>
