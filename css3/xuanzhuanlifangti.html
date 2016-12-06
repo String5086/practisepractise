@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+            -webkit-perspective: 800px;
+            /*-webkit-perspective-origin:center -400px;*/
+        }
+        #container{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -webkit-animation: lueluelue 2s linear infinite;
+        }
+        @-webkit-keyframes lueluelue {
+            0%{
+
+            }
+            100%{
+                -webkit-transform: rotateY(-360deg);
+            }
+        }
+        #container div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: rgba(255,255,255,0.6);
+            font-size: 40px;
+            line-height: 200px;
+            text-align: center;
+            border-radius: 10px;
+            /*opacity: 0.6;*/
+        }
+        #div1{
+            top: -100px;
+            -webkit-transform: rotateX(90deg);
+        }
+        #div2{
+            -webkit-transform: translateZ(100px);
+        }
+        #div3{
+            right: -100px;
+            -webkit-transform: rotateY(90deg);
+        }
+        #div4{
+            -webkit-transform: rotateY(180deg) translateZ(100px);
+        }
+        #div5{
+            left: -100px;
+            -webkit-transform: rotateY(-90deg);
+        }
+        #div6{
+            top: 100px;
+            -webkit-transform: rotateX(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="div4">4</div>
+        <div id="div5">5</div>
+        <div id="div6">6</div>
+    </div>
+</body>
+</html>
