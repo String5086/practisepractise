@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            margin: 50px auto;
+            width: 680px;
+            height: 344px;
+            position: relative;
+            display: -webkit-box;
+            overflow: hidden;
+        }
+        #container span{
+            position: absolute;
+            bottom: 0;
+        }
+        #container div{
+            width: 0;
+            /*position: absolute;*/
+            -webkit-box-flex:1;
+            /*overflow: hidden;*/
+            -webkit-transition: width 1s ease-in-out;
+            /*float: left;*/
+        }
+
+        #container div:hover{
+            /*-webkit-box-flex:8;*/
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div><img src="1.jpg" alt=""/><span>1</span></div>
+        <div><img src="2.jpg" alt=""/><span>2</span></div>
+        <div><img src="1.jpg" alt=""/><span>3</span></div>
+        <div><img src="2.jpg" alt=""/><span>4</span></div>
+        <div><img src="1.jpg" alt=""/><span>5</span></div>
+    </div>
+</body>
+</html>

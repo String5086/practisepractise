@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 805px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            margin:  100px auto;
+        }
+        #container div{
+            width: 160px;
+            height: 300px;
+            border-right: 1px solid #ffffff;
+            float: left;
+            position: relative;
+            -webkit-transition: width 1s ease;
+        }
+        #container span{
+            position: absolute;
+            bottom: 0;
+        }
+        #container:hover div{
+            width: 50px;
+        }
+        #container div:hover{
+            width: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div><img src="1.jpg" alt=""/><span>1</span></div>
+        <div><img src="2.jpg" alt=""/><span>2</span></div>
+        <div><img src="1.jpg" alt=""/><span>1</span></div>
+        <div><img src="2.jpg" alt=""/><span>2</span></div>
+        <div><img src="1.jpg" alt=""/><span>1</span></div>
+    </div>
+</body>
+</html>

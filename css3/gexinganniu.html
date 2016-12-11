@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #content{
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            width: 100px;
+            height: 100px;
+        }
+        #content li{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: all 1s ease;
+        }
+        #content img{
+            width: 42px;
+            height: 42px;
+            -webkit-transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+        <ul id="content">
+            <li><img src="img/close.png" alt=""/></li>
+            <li><img src="img/full.png" alt=""/></li>
+            <li><img src="img/refresh.png" alt=""/></li>
+            <li><img src="img/open.png" alt=""/></li>
+            <li><img src="img/prev.png" alt=""/></li>
+            <li id="teshu"><img src="img/home.png" alt=""/></li>
+        </ul>
+    <script>
+        var oContent = document.getElementById("content");
+        var aLi = oContent.getElementsByTagName("li");
+        var aImg =oContent.getElementsByTagName("img");
+        var oTeshu = document.getElementById("teshu");
+        var bFlag = true;
+        oTeshu.onclick = function(){
+            if(bFlag){
+                for(var i=0;i<aLi.length-1;i++){
+                    var x = -150 * Math.sin(i * 22.5 * Math.PI/180);
+                    var y = -150 * Math.cos(i * 22.5 * Math.PI/180);
+                    aLi[i].style.WebkitTransform = "translate(" + x + "px," + y + "px) rotate(-360deg)" ;
+                    aLi[i].style.WebkitTransitionDelay = i * 50 + "ms";
+                }
+                this.style.WebkitTransform = "rotate(-360deg)";
+            }else{
+                for(var i=0;i<aLi.length-1;i++){
+                    aLi[i].style.WebkitTransform = "translate(0px,0px) rotate(0deg)" ;
+                    aLi[i].style.WebkitTransitionDelay = (aLi.length-1-i) * 50 + "ms";
+                }
+                this.style.WebkitTransform = "rotate(0deg)";
+            }
+            bFlag = !bFlag;
+        };
+        for(var i=0;i<aLi.length-1;i++){
+            aLi[i].index = i;
+            aImg[i].state = false;
+            aLi[i].onclick= function(){
+                if(!aImg[this.index].state){
+                    var lueluelue = aImg[this.index].style.WebkitTransform;
+                    aImg[this.index].state= true;
+                    aImg[this.index].style.WebkitTransitionDuration = "0.3s";
+                    aImg[this.index].style.opacity = 0.6;
+                    aImg[this.index].style.WebkitTransform = lueluelue + " scale(2)";
+                    var that = this.index;
+                    setTimeout(function(){
+                        aImg[that].style.opacity = 1;
+                        aImg[that].style.WebkitTransform = lueluelue;
+                        aImg[that].state = false;
+                    },300)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

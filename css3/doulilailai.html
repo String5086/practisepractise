@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #container span{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50px;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            background: #cccccc;
+            border-radius: 50%;
+        }
+        #prev{
+            left: -100px;
+        }
+        #next{
+            right: -100px;
+        }
+        #content{
+            width: 680px;
+            height: 344px;
+            position: absolute;
+        }
+        #content img{
+            position: absolute;
+            -webkit-transform-origin: bottom;
+            -webkit-transform: rotateX(180deg);
+            -webkit-transition: all 1s ease;
+            opacity: 0;
+        }
+        .show{
+            -webkit-animation: show 1s ease forwards;
+        }
+        @-webkit-keyframes show {
+            0%{}
+            60%{
+                -webkit-transform: rotateX(-20deg);
+            }
+            70%{
+                -webkit-transform: rotateX(15deg);
+            }
+            80%{
+                -webkit-transform: rotateX(-10deg);
+            }
+            90%{
+                -webkit-transform: rotateX(-10deg);
+            }
+            100%{
+                -webkit-transform: rotateX(0deg);
+                opacity: 1;
+            }
+        }
+        .hide{
+            -webkit-animation: hide 1s ease forwards;
+        }
+        @-webkit-keyframes hide {
+            0%{-webkit-transform: rotateX(0deg);
+                opacity: 1;}
+            100%{
+                -webkit-transform: rotateX(-180deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <img src="1.jpg" class="show" alt=""/>
+            <img src="2.jpg" alt=""/>
+            <img src="3.jpg" alt=""/>
+            <img src="4.jpg" alt=""/>
+        </div>
+        <span id="prev">&lt</span>
+        <span id="next">&gt</span>
+    </div>
+    <script>
+        var oContent = document.getElementById("content");
+        var aImg = oContent.getElementsByTagName("img");
+        var oPrev = document.getElementById("prev");
+        var oNext = document.getElementById("next");
+        var iNow = 0;
+        oNext.onclick = function(){
+            aImg[iNow].className = "hide";
+            iNow++;
+            if(iNow==aImg.length){
+                iNow=0;
+            }
+            aImg[iNow].className = "show";
+        };
+        oPrev.onclick = function(){
+            aImg[iNow].className = "hide";
+            iNow--;
+            if(iNow==-1){
+                iNow= aImg.length-1;
+            }
+            aImg[iNow].className = "show";
+        }
+    </script>
+</body>
+</html>
