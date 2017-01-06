@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            background: #eee;
+        }
+        #guanggao{
+            height: 40px;
+            background: rgb(68,68,68);
+
+        }
+        #guanggao span{
+            width: 976px;
+            height: 40px;
+            display: block;
+            text-align: right;
+            margin: 0 auto;
+            line-height: 40px;
+            font-size: 10px;
+            color: #a8a8a8;
+        }
+        #nav{
+            height: 44px;
+            background: #000;
+        }
+        #nav ul{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        #nav li{
+            display: inline-block;
+            margin: 0 28px;
+        }
+        #nav li:nth-child(1){
+            margin-left: 0;
+        }
+        #nav li:nth-child(9){
+            margin-right: 0;
+        }
+        #nav li a{
+            margin: 0 10px;
+        }
+        #lunbo{
+            height: 594px;
+            background: #cccccc;
+        }
+        #lunbo1,#lunbo2,#lunbo3{
+            width: 100%;
+            height: 100%;
+        }
+        #promos ul{
+            height: 200px;
+        }
+        #promos ul li{
+            width: 25%;
+            height: 100%;
+            float: left;
+            overflow: hidden;
+        }
+        #promos ul li a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #ffffff;
+        }
+        #foot{
+            width: 980px;
+            margin: 0 auto;
+            height: 220px;
+        }
+        .classa{
+            width: 20%;
+            float: left;
+            margin-top: 20px;
+        }
+        .classa span{
+            font-size: 12px;
+            color: #333;
+            font-weight: bold;
+        }
+        .classa a{
+            display: block;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="guanggao"><span>&lt广告&gt</span></div>
+    <div id="lunbo">
+        <div id="nav">
+            <ul>
+                <li><a href="#"><img src="nav/apple.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/mac.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/ipad.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/iphone.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/watch.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/music.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/jszc.svg" alt="" style="width: 57px"/></a></li>
+                <li><a href="#"><img src="nav/search.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/bag.svg" alt=""/></a></li>
+            </ul>
+        </div>
+        <div id="lunbo1"><a href="#" style="background-color:rgb(10,10,10);background-image: url(gallery/iphone_alt_large.jpg); background-position:center center;background-size:auto 100%;background-repeat: no-repeat; display:block; height: 100%"></a></div>
+        <!--<div id="lunbo2"><a href="#" style="background-color:#f3f3f3;background-image: url(gallery/watch_alt_large.jpg); background-position:50% 50%;background-size:auto 100%;background-repeat: no-repeat;display:block; height: 100%"></a></div>-->
+        <!--<div id="lunbo3"><a href="#" style="background-color:rgb(255,255,255);background-image: url(gallery/macbookpro_xlarge.jpg); background-position:50% 100%;background-size:100% auto;background-repeat: no-repeat;display:block; height: 100%"></a></div>-->
+    </div>
+    <div id="promos">
+        <ul>
+            <li><a href="#" style="background-image: url(promos/ipad_pro_xlarge.jpg);background-position:center center;background-size:auto 100%;background-repeat: no-repeat;"></a></li>
+            <li><a href="#" style="background-image: url(promos/airpods_xlarge.jpg);background-position:center center;background-size:auto 100%;background-repeat: no-repeat;"></a></li>
+            <li><a href="#" style="background-image: url(promos/iphone_upgrade_xlarge.jpg);background-position:center center;background-size:auto 100%;background-repeat: no-repeat;"></a></li>
+            <li><a href="#" style="background-image: url(promos/made_by_apple_xlarge.jpg);background-position:center center;background-size:auto 100%;background-repeat: no-repeat;"></a></li>
+        </ul>
+    </div>
+    <div id="foot">
+        <div style="width: 100%;height: 48px;color: #999;line-height: 48px;font-size: 12px;border-bottom: 1px solid #cccccc">双镜头摄像头仅于 iPhone 7 Plus 提供。亮黑色外观仅于 128GB 及以上存储容量的机型提供。</div>
+        <div class="classa">
+            <span>选购及了解</span>
+            <a href="#">Mac</a>
+            <a href="#">iPad</a>
+            <a href="#">iPhone</a>
+            <a href="#">Watch</a>
+            <a href="#">Music</a>
+            <a href="#">iTunes</a>
+            <a href="#">iPod</a>
+            <a href="#">配件</a>
+        </div>
+        <div class="classa">
+            <span>Apple Store 商店</span>
+            <a href="#">查找零售店</a>
+            <a href="#">Genius Bar 天才吧</a>
+            <a href="#">讲座和学习</a>
+            <a href="#">青少年活动</a>
+            <a href="#">Apple Store App</a>
+            <a href="#">翻新和优惠</a>
+            <a href="#">分期付款</a>
+            <a href="#">重复使用和循环使用</a>
+            <a href="#">订单状态</a>
+            <a href="#">选购帮助</a>
+        </div>
+        <div class="classa">
+            <div>
+                <span>教育应用</span>
+                <a href="#">Apple 与教育</a>
+                <a href="#">高校师生选购</a>
+            </div>
+            <br />
+            <div>
+                <span>商务应用</span>
+                <a href="#">Apple 与商务</a>
+                <a href="#">商务选购</a>
+            </div>
+        </div>
+        <div class="classa">
+            <div>
+                <span>账户</span>
+                <a href="#">管理你的 Apple ID</a>
+                <a href="#">Apple Store 账户</a>
+                <a href="#">iCloud.com</a>
+            </div>
+            <div>
+                <span>Apple 价值观</span>
+                <a href="#">辅助功能</a>
+                <a href="#">环境责任</a>
+                <a href="#">隐私</a>
+                <a href="#">供应商责任</a>
+            </div>
+        </div>
+        <div class="classa">
+            <span>关于 Apple</span>
+            <a href="#">Apple 资讯</a>
+            <a href="#">工作机会</a>
+            <a href="#">媒体资讯</a>
+            <a href="#">活动</a>
+            <a href="#">联系 Apple</a>
+        </div>
+        <br/>
+        <div style="width:100%;float: left;font-size: 12px;color: #999;border-bottom: 1px solid #cccccc">
+            更多选购方式：前往 Apple Store 零售店，致电 400-666-8800 或查找在你附近的授权经销商。
+        </div>
+    </div>
+</body>
+</html>
