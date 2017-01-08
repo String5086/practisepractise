@@ -23,7 +23,7 @@
 
         }
         #guanggao span{
-            width: 976px;
+            max-width: 976px;
             height: 40px;
             display: block;
             text-align: right;
@@ -37,21 +37,10 @@
             background: #000;
         }
         #nav ul{
-            width: 1000px;
+            max-width: 1000px;
             margin: 0 auto;
-        }
-        #nav li{
-            display: inline-block;
-            margin: 0 28px;
-        }
-        #nav li:nth-child(1){
-            margin-left: 0;
-        }
-        #nav li:nth-child(9){
-            margin-right: 0;
-        }
-        #nav li a{
-            margin: 0 10px;
+            display: -webkit-box;
+            -webkit-box-pack: justify;
         }
         #lunbo{
             height: 594px;
@@ -77,7 +66,7 @@
             border: 3px solid #ffffff;
         }
         #foot{
-            width: 980px;
+            max-width: 980px;
             margin: 0 auto;
             height: 220px;
         }
@@ -96,13 +85,30 @@
             font-size: 12px;
             color: #666;
         }
+        #nav #duan{
+            display: none;
+        }
+        @media (max-width: 768px) {
+            #nav #duan{
+                display: -webkit-box;
+                -webkit-box-pack: justify;
+            }
+            #nav #chang{
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="guanggao"><span>&lt广告&gt</span></div>
     <div id="lunbo">
         <div id="nav">
-            <ul>
+            <ul id="duan">
+                <li><span style="color: #ffffff;display: block;width: 44px;height: 44px;font-size: 44px;text-align: center;line-height: 44px">=</span></li>
+                <li><a href="#"><img src="nav/apple.svg" alt=""/></a></li>
+                <li><a href="#"><img src="nav/bag.svg" alt=""/></a></li>
+            </ul>
+            <ul id="chang">
                 <li><a href="#"><img src="nav/apple.svg" alt=""/></a></li>
                 <li><a href="#"><img src="nav/mac.svg" alt=""/></a></li>
                 <li><a href="#"><img src="nav/ipad.svg" alt=""/></a></li>
